@@ -1,0 +1,42 @@
+# Docker
+.dockerignore
+Dockerfile.*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Model data (if storing models locally)
+models/
+*.bin
+*.safetensors
+
+# Ollama data (handled by volumes)
+.ollama/
+
+# Test outputs
+test_results/
+*.output

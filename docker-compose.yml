@@ -1,0 +1,22 @@
+services:
+  llm:
+    build: .
+    container_name: llm-service
+    ports:
+      - "11434:11434"  # Ollama API port
+      - "8000:8000"    # FastAPI service port
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+      - OLLAMA_ORIGINS=*
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/version"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  ollama_data:
+    driver: local
