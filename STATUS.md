@@ -1,4 +1,11 @@
-# 🎉 Micro LLM Service - Successfully Deployed!
+# 🎉 Micro LLM Se| Endpoint | Method | Description | Example |
+|----------|--------|-------------|---------|
+| `/` | GET | API information | `curl http://localhost:8100/` |
+| `/health` | GET | Health check | `curl http://localhost:8100/health` |
+| `/models` | GET | List models | `curl http://localhost:8100/models` |
+| `/inference` | POST | Text generation | `curl -X POST http://localhost:8100/inference -H "Content-Type: application/json" -d '{"prompt": "Hello world"}` |
+| `/chat` | POST | Chat conversation | `curl -X POST http://localhost:8100/chat -H "Content-Type: application/json" -d '{"prompt": "Hi there!"}` |
+| `/docs` | GET | Interactive API docs | Open `http://localhost:8100/docs` in browser |Successfully Deployed!
 
 ## ✅ Service Status: OPERATIONAL
 
@@ -17,12 +24,12 @@ Your Micro LLM microservice is now **running successfully** and ready for integr
 
 | Endpoint | Method | Purpose | Example |
 |----------|--------|---------|---------|
-| `/` | GET | API information | `curl http://localhost:8000/` |
-| `/health` | GET | Health check | `curl http://localhost:8000/health` |
-| `/models` | GET | List models | `curl http://localhost:8000/models` |
-| `/inference` | POST | Text generation | `curl -X POST http://localhost:8000/inference -H "Content-Type: application/json" -d '{"prompt": "Hello world"}` |
-| `/chat` | POST | Chat conversation | `curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d '{"prompt": "Hi there!"}` |
-| `/docs` | GET | Interactive API docs | Open `http://localhost:8000/docs` in browser |
+| `/` | GET | API information | `curl http://localhost:8100/` |
+| `/health` | GET | Health check | `curl http://localhost:8100/health` |
+| `/models` | GET | List models | `curl http://localhost:8100/models` |
+| `/inference` | POST | Text generation | `curl -X POST http://localhost:8100/inference -H "Content-Type: application/json" -d '{"prompt": "Hello world"}` |
+| `/chat` | POST | Chat conversation | `curl -X POST http://localhost:8100/chat -H "Content-Type: application/json" -d '{"prompt": "Hi there!"}` |
+| `/docs` | GET | Interactive API docs | Open `http://localhost:8100/docs` in browser |
 
 ### 🧪 Verification Results
 
@@ -42,14 +49,14 @@ Your microservice is now ready to be consumed by other software components. Here
 ```python
 import requests
 
-response = requests.post("http://localhost:8000/inference", 
+response = requests.post("http://localhost:8100/inference", 
     json={"prompt": "Explain AI", "max_tokens": 100})
 print(response.json()["response"])
 ```
 
 #### JavaScript/Node.js Integration
 ```javascript
-const response = await fetch('http://localhost:8000/inference', {
+const response = await fetch('http://localhost:8100/inference', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ prompt: 'Hello', max_tokens: 50 })
@@ -61,17 +68,17 @@ console.log(data.response);
 #### cURL Examples
 ```bash
 # Simple inference
-curl -X POST "http://localhost:8000/inference" \
+curl -X POST "http://localhost:8100/inference" \
      -H "Content-Type: application/json" \
      -d '{"prompt": "What is machine learning?", "max_tokens": 200}'
 
 # Chat style
-curl -X POST "http://localhost:8000/chat" \
+curl -X POST "http://localhost:8100/chat" \
      -H "Content-Type: application/json" \
      -d '{"prompt": "Hello, how can you help me?"}'
 
 # Health check
-curl http://localhost:8000/health
+curl http://localhost:8100/health
 ```
 
 ### 📋 Management Commands
@@ -98,7 +105,7 @@ sudo docker stop micro-llm-service && sudo docker rm micro-llm-service
 
 ### 🔄 Next Steps
 
-1. **Test the API** using the Interactive documentation at `http://localhost:8000/docs`
+1. **Test the API** using the Interactive documentation at `http://localhost:8100/docs`
 2. **Integrate with your software** using the client examples in `/examples/`
 3. **Monitor performance** - CPU inference is slower but reliable
 4. **Scale if needed** - Consider GPU deployment for higher throughput
@@ -120,6 +127,6 @@ Your Micro LLM microservice is **successfully deployed and operational**. The se
 - ✅ Providing REST API for prompt/inference functionality
 
 **🔗 Quick Access:**
-- API Root: http://localhost:8000
-- Interactive Docs: http://localhost:8000/docs
-- Health Check: http://localhost:8000/health
+- API Root: http://localhost:8100
+- Interactive Docs: http://localhost:8100/docs
+- Health Check: http://localhost:8100/health

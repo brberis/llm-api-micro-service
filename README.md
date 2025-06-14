@@ -22,12 +22,12 @@ A lightweight Docker-based LLM inference microservice using Gemma2 (2B model) fo
 
 3. **Test the service:**
    ```bash
-   curl http://localhost:8000/health
+   curl http://localhost:8100/health
    ```
 
 ## API Endpoints
 
-### Base URL: `http://localhost:8000`
+### Base URL: `http://localhost:8100`
 
 - **GET /** - API information and usage
 - **GET /health** - Health check and model status
@@ -41,7 +41,7 @@ A lightweight Docker-based LLM inference microservice using Gemma2 (2B model) fo
 
 ### Simple Inference
 ```bash
-curl -X POST "http://localhost:8000/inference" \
+curl -X POST "http://localhost:8100/inference" \
      -H "Content-Type: application/json" \
      -d '{
        "prompt": "Explain quantum computing in simple terms",
@@ -52,7 +52,7 @@ curl -X POST "http://localhost:8000/inference" \
 
 ### Chat Conversation
 ```bash
-curl -X POST "http://localhost:8000/chat" \
+curl -X POST "http://localhost:8100/chat" \
      -H "Content-Type: application/json" \
      -d '{
        "prompt": "Hello, how are you?",
@@ -63,7 +63,7 @@ curl -X POST "http://localhost:8000/chat" \
 
 ### Health Check
 ```bash
-curl http://localhost:8000/health
+curl http://localhost:8100/health
 ```
 
 ## Request Format
@@ -98,7 +98,7 @@ import requests
 
 def call_llm_service(prompt: str, max_tokens: int = 512):
     response = requests.post(
-        "http://localhost:8000/inference",
+        "http://localhost:8100/inference",
         json={
             "prompt": prompt,
             "max_tokens": max_tokens,
@@ -115,7 +115,7 @@ print(result)
 ### JavaScript/Node.js Client Example
 ```javascript
 async function callLLMService(prompt, maxTokens = 512) {
-    const response = await fetch('http://localhost:8000/inference', {
+    const response = await fetch('http://localhost:8100/inference', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -177,7 +177,7 @@ docker-compose exec micro-llm ollama pull gemma2:2b
 ### API Not Responding
 ```bash
 # Check health endpoint
-curl -v http://localhost:8000/health
+curl -v http://localhost:8100/health
 
 # Check Ollama status
 curl http://localhost:11434/api/version
@@ -200,10 +200,10 @@ cd app && python main.py
 ### Testing
 ```bash
 # Run health check
-curl http://localhost:8000/health
+curl http://localhost:8100/health
 
 # Test inference
-curl -X POST http://localhost:8000/inference \
+curl -X POST http://localhost:8100/inference \
   -H "Content-Type: application/json" \
   -d '{"prompt": "Hello world!"}'
 ```

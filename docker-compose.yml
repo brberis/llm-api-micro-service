@@ -4,7 +4,7 @@ services:
     container_name: llm-service
     ports:
       - "11434:11434"  # Ollama API port
-      - "8000:8000"    # FastAPI service port
+      - "8100:8000"    # FastAPI service port
     environment:
       - OLLAMA_HOST=0.0.0.0
       - OLLAMA_ORIGINS=*

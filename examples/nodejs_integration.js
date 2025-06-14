@@ -3,7 +3,7 @@
 const axios = require('axios');
 
 class MicroLLMService {
-    constructor(baseUrl = 'http://localhost:8000') {
+    constructor(baseUrl = 'http://localhost:8100') {
         this.baseUrl = baseUrl.replace(/\/$/, '');
         this.client = axios.create({
             baseURL: this.baseUrl,

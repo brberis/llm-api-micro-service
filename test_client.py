@@ -5,7 +5,7 @@ import json
 import time
 
 class MicroLLMClient:
-    def __init__(self, base_url="http://localhost:8000"):
+    def __init__(self, base_url="http://localhost:8100"):
         self.base_url = base_url
     
     def health_check(self):

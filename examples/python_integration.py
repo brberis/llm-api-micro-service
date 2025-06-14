@@ -8,7 +8,7 @@ from typing import Optional, Dict, Any
 class MicroLLMService:
     """Client for interacting with Micro LLM Service"""
     
-    def __init__(self, base_url: str = "http://localhost:8000"):
+    def __init__(self, base_url: str = "http://localhost:8100"):
         self.base_url = base_url.rstrip('/')
     
     def generate_text(self, prompt: str, max_tokens: int = 512, temperature: float = 0.7) -> Dict[str, Any]:
